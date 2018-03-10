@@ -1,6 +1,7 @@
 package com.test.jq.takehomelesson06_jieqiongl;
 
 import java.io.Serializable;
+import java.text.NumberFormat;
 
 /**
  * Created by IBM on 6/03/2018.
@@ -53,6 +54,9 @@ public class Receipt implements Serializable {
 
     @Override
     public String toString() {
-        return "Total: " + amount + "\nSales Tax: " + taxPercentage * 100 + "\nTip: " + tipPercentage * 100 + "\nGrand Total: " + totalPrice;
+        return "Total: " + NumberFormat.getCurrencyInstance().format(amount) +
+                "\nSales Tax: " + NumberFormat.getCurrencyInstance().format(taxPercentage * amount) +
+                "\nTip: " + NumberFormat.getCurrencyInstance().format(tipPercentage * amount) +
+                "\nGrand Total: " + NumberFormat.getCurrencyInstance().format(totalPrice);
     }
 }
